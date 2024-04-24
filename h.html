@@ -1,54 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>H</title>
+<title>Текст разного размера и стиля</title>
 <style>
     body {
-        margin: 0;
-		background-color: black;
-        padding: 0;
-        overflow: hidden;
+        font-family: Arial, sans-serif;
+        text-align: center;
     }
-    .falling-char {
-        position: absolute;
-        color: green;
+    .text {
+        margin-top: 50px;
+    }
+    .line {
+        margin-bottom: 10px;
+    }
+    .char {
+        display: inline-block;
+    }
+    .size-12 {
+        font-size: 12px;
+    }
+    .size-14 {
+        font-size: 14px;
+    }
+    .size-16 {
+        font-size: 16px;
+    }
+    .size-18 {
+        font-size: 18px;
+    }
+    .size-20 {
         font-size: 20px;
-        animation: fall 5s linear infinite;
-    }
-    @keyframes fall {
-        0% { top: -20px; }
-        100% { top: 100%; }
     }
 </style>
 </head>
 <body>
 
-<script>
-    // Функция для генерации случайного символа
-    function randomCharacter() {
-        var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*_+";
-        return characters.charAt(Math.floor(Math.random() * characters.length));
-    }
-
-    // Функция для создания падающего символа
-    function createFallingChar() {
-        var char = document.createElement("div");
-        char.className = "falling-char";
-        char.style.left = Math.random() * window.innerWidth + "px";
-        char.textContent = randomCharacter();
-        document.body.appendChild(char);
-
-        // Удаление символа после завершения анимации
-        char.addEventListener("animationend", function() {
-            char.parentNode.removeChild(char);
-        });
-    }
-
-    // Создаем падающие символы каждые 200 миллисекунд
-    setInterval(createFallingChar, 200);
-</script>
+<div class="text">
+    <!-- Линии с разными размерами шрифта -->
+    <div class="line">
+        <span class="char size-12">Н</span>
+        <span class="char size-14">е</span>
+        <span class="char size-16">к</span>
+        <span class="char size-18">о</span>
+        <span class="char size-20">т</span>
+        <span class="char size-12">о</span>
+        <span class="char size-14">р</span>
+        <span class="char size-16">ы</span>
+        <span class="char size-18">й</span>
+        <span class="char size-20">    </span>
+		<span class="char size-20">    </span>
+		<span class="char size-20">    </span>
+        <span class="char size-12">N</span>
+        <span class="char size-14">U</span>
+        <span class="char size-16">L</span>
+        <span class="char size-18">L</span>
+    </div>
+    <!-- Повторение линий -->
+    <!-- Можно добавить больше строк, чтобы было 20 -->
+    <div class="line">
+        <span class="char size-12">О</span>
+        <span class="char size-14">н</span>
+        <span class="char size-16"> </span>
+		<span class="char size-20">    </span>
+		<span class="char size-20">    </span>
+		<span class="char size-20">    </span>
+        <span class="char size-18">п</span>
+        <span class="char size-20">р</span>
+        <span class="char size-12">и</span>
+        <span class="char size-14">д</span>
+        <span class="char size-16">ё</span>
+        <span class="char size-18">т</span>
+    </div>
+</div>
 
 </body>
 </html>
