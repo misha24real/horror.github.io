@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H</title>
+<style>
+    body {
+        margin: 0;
+		background-color: black;
+        padding: 0;
+        overflow: hidden;
+    }
+    .falling-char {
+        position: absolute;
+        color: green;
+        font-size: 20px;
+        animation: fall 5s linear infinite;
+    }
+    @keyframes fall {
+        0% { top: -20px; }
+        100% { top: 100%; }
+    }
+</style>
+</head>
+<body>
+
+<script>
+    // Функция для генерации случайного символа
+    function randomCharacter() {
+        var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*_+";
+        return characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+
+    // Функция для создания падающего символа
+    function createFallingChar() {
+        var char = document.createElement("div");
+        char.className = "falling-char";
+        char.style.left = Math.random() * window.innerWidth + "px";
+        char.textContent = randomCharacter();
+        document.body.appendChild(char);
+
+        // Удаление символа после завершения анимации
+        char.addEventListener("animationend", function() {
+            char.parentNode.removeChild(char);
+        });
+    }
+
+    // Создаем падающие символы каждые 200 миллисекунд
+    setInterval(createFallingChar, 200);
+</script>
+
+</body>
+</html>

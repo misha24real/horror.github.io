@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Авторизация</title>
+<style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: Arial, sans-serif;
+    }
+    #container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    input[type="text"] {
+        padding: 10px;
+        margin-bottom: 10px;
+        width: 200px;
+    }
+    input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #333;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<div id="container">
+    <form id="loginForm" action="h.html" method="post">
+        <input type="text" id="password" name="password" placeholder="Введите пароль">
+        <br>
+        <input type="submit" value="Войти">
+    </form>
+    <div id="error" style="display: none; color: red;">
+        Неверный пароль. Пожалуйста, попробуйте еще раз.
+    </div>
+</div>
+
+<script>
+    document.getElementById("loginForm").onsubmit = function() {
+        var password = document.getElementById("password").value;
+        if (password === "1234567890") {
+            return true; // Верный пароль - переходим на другую страницу
+        } else {
+            document.getElementById("error").style.display = "block"; // Неправильный пароль - показываем ошибку
+            return false; // Предотвращаем отправку формы
+        }
+    };
+</script>
+
+</body>
+</html>
